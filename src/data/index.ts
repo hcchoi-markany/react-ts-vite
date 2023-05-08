@@ -3,7 +3,7 @@ import { GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
 
 const useGoogleAuth = () => {
   const firebaseConfig = {
-    apiKey: 'AIzaSyCsfVkzFOQGyR8OSjqovHy2J3eInFLnvzE',
+    apiKey: import.meta.env.VITE_FIREBASE_APIKEY,
     authDomain: 'saforus-5ba09.firebaseapp.com',
     projectId: 'saforus-5ba09',
     storageBucket: 'saforus-5ba09.appspot.com',
@@ -12,7 +12,7 @@ const useGoogleAuth = () => {
   };
 
   // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
+  initializeApp(firebaseConfig);
 
   async function signIn() {
     // Sign in Firebase using popup auth and Google as the identity provider.

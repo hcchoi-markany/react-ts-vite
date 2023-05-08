@@ -1,6 +1,3 @@
-import { useState } from 'react';
-
-import './App.css';
 import { Button } from '@mui/material';
 import useGoogleAuth from './data';
 import { getAuth } from 'firebase/auth';
