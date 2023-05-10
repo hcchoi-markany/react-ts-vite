@@ -8,13 +8,6 @@ export type Routes = {
   [key: string]: RouteItem | string;
 };
 
-const routers = {
-  INDEX: {
-    path: '/',
-    description: 'indexPage',
-  },
-};
-
 const setNestedPathProxy = {
   get(target: RouteItem, prop: string): any {
     const value = target[prop];
@@ -23,6 +16,17 @@ const setNestedPathProxy = {
       return new Proxy({ ...value, path: `${parentPath}${value.path}` }, setNestedPathProxy);
     }
     return target[prop];
+  },
+};
+
+const routers = {
+  INDEX: {
+    path: '/',
+    description: 'Main Page',
+  },
+  LOGIN: {
+    path: '/login',
+    description: 'Login Page',
   },
 };
 

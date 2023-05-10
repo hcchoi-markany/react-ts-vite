@@ -19,13 +19,15 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
 
+    "allowSyntheticDefaultImports": true,
+
     /* Path */
-    "baseUrl": "src",
+    "baseUrl": ".",
     "paths": {
-      "@components/*": ["components/*"],
-      "@containers/*": ["containers/*"],
-      "@libs/*": ["libs/*"],
-      "@pages/*": ["pages/*"]
+      "@components/*": ["src/components/*"],
+      "@containers/*": ["src/containers/*"],
+      "@libs/*": ["src/libs/*"],
+      "@pages/*": ["src/pages/*"]
     }
   },
   "include": ["src"],

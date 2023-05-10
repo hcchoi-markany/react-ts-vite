@@ -1,20 +1,24 @@
-import { Button } from '@mui/material';
-import useGoogleAuth from './data';
-import { getAuth } from 'firebase/auth';
+import Spinner from '@components/layouts/spinner';
+import getFirebaseApp from '@libs/firebase';
+import AppRouter from '@libs/router';
+import muiTheme from '@libs/theme';
+import { CssBaseline, ThemeProvider } from '@mui/material';
+import { Suspense } from 'react';
+import { RouterProvider } from 'react-router-dom';
+import { useState } from 'react';
 
 function App() {
-  const { signIn } = useGoogleAuth();
-  const { currentUser } = getAuth();
-  console.log(currentUser);
+  getFirebaseApp();
+  const [open, setOpen] = useState(false);
 
   return (
     <>
-      <div>
-        <Button variant='outlined' onClick={() => signIn()}>
-          Login
-        </Button>
-      </div>
-      <p className='read-the-docs'>Click on the Vite and React logos to learn more</p>
+      <Suspense fallback={<Spinner open={open} />}>
+        <ThemeProvider theme={muiTheme}>
+          <CssBaseline />
+          <RouterProvider router={AppRouter} />
+        </ThemeProvider>
+      </Suspense>
     </>
   );
 }
