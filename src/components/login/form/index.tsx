@@ -6,13 +6,12 @@ import { useNavigate } from 'react-router-dom';
 
 const LoginFrom = () => {
   const navigate = useNavigate();
-  const { signIn } = useGoogleAuth();
+  const { signIn, error } = useGoogleAuth();
 
   const login = async () => {
-    const userInfo = await signIn();
-    console.log(userInfo);
+    await signIn();
 
-    if (userInfo) navigate(ROUTES.INDEX.path);
+    if (!error) navigate(ROUTES.INDEX.path);
   };
 
   return (

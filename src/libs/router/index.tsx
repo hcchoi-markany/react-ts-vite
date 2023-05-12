@@ -1,9 +1,9 @@
 import { lazy } from 'react';
-import { createBrowserRouter } from 'react-router-dom';
+import { Outlet, createBrowserRouter } from 'react-router-dom';
 import { ROUTES } from './data';
+import AuthProvider from '@libs/hocs/auth';
 
 const DefaultLayout = lazy(() => import('@components/layouts/default-layout'));
-const AuthProvider = lazy(() => import('@libs/hocs/auth'));
 
 const MainPage = lazy(() => import('@pages/main'));
 const LoginPage = lazy(() => import('@pages/login'));
@@ -13,7 +13,9 @@ const AppRouter = createBrowserRouter([
     path: ROUTES.INDEX.path,
     element: (
       <AuthProvider>
-        <DefaultLayout />
+        <DefaultLayout>
+          <Outlet />
+        </DefaultLayout>
       </AuthProvider>
     ),
     children: [
