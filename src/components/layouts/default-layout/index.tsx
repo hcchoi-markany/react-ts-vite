@@ -1,5 +1,4 @@
 import { Container, Grid, styled } from '@mui/material';
-import Header from '../header/indes';
 import { DefaultLayoutProps } from './data';
 
 const DefaultLayoutStyle = styled(Container)({
@@ -12,7 +11,7 @@ const DefaultLayout = ({ children }: DefaultLayoutProps) => {
     <DefaultLayoutStyle maxWidth='xl'>
       <Grid container direction='column'>
         <Grid item xs={12}>
-          <Header />
+          {/* <Header /> */}
         </Grid>
         <Grid item>{children}</Grid>
       </Grid>

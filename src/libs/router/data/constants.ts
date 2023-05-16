@@ -28,6 +28,14 @@ const routers = {
     path: '/login',
     description: 'Login Page',
   },
+  SETTING: {
+    path: '/settings',
+    description: 'setting Page',
+    SITES: {
+      path: '/sites',
+      description: 'sites Page',
+    },
+  },
 };
 
 const ROUTES = new Proxy(routers, setNestedPathProxy);

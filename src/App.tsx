@@ -7,6 +7,8 @@ import { Suspense, useState } from 'react';
 import { RouterProvider } from 'react-router-dom';
 
 import { QueryClient, QueryClientProvider } from 'react-query';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   getFirebaseApp();
@@ -20,6 +22,15 @@ function App() {
           <ThemeProvider theme={muiTheme}>
             <CssBaseline />
             <RouterProvider router={AppRouter} />
+            <ToastContainer
+              position='top-center'
+              autoClose={3000}
+              hideProgressBar={false}
+              newestOnTop
+              pauseOnHover
+              pauseOnFocusLoss={false}
+              theme='light'
+            />
           </ThemeProvider>
         </Suspense>
       </QueryClientProvider>

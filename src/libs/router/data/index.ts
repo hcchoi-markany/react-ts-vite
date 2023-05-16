@@ -1,1 +1,1 @@
-export { default as ROUTES } from './constans';
+export { default as ROUTES } from './constants';

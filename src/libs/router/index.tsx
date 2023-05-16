@@ -7,6 +7,7 @@ const DefaultLayout = lazy(() => import('@components/layouts/default-layout'));
 
 const MainPage = lazy(() => import('@pages/main'));
 const LoginPage = lazy(() => import('@pages/login'));
+const SettingsSitesPage = lazy(() => import('@pages/setting/sites'));
 
 const AppRouter = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ const AppRouter = createBrowserRouter([
   {
     path: ROUTES.LOGIN.path,
     element: <LoginPage />,
+  },
+  {
+    path: ROUTES.SETTING.SITES.path,
+    element: <SettingsSitesPage />,
   },
 ]);
 
