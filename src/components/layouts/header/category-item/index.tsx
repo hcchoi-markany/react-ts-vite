@@ -1,4 +1,3 @@
-import styled from '@emotion/styled';
 import { Typography, Box } from '@mui/material';
 import { Link } from 'react-router-dom';
 

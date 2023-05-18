@@ -9,23 +9,22 @@ import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import { getAuth, signOut } from 'firebase/auth';
+import { getAuth } from 'firebase/auth';
 import { useIdToken } from 'react-firebase-hooks/auth';
 import { useEffect, useState } from 'react';
-import _ from 'lodash-es';
 import { styled } from '@mui/material';
-import Categories from './categories';
+import * as _ from 'lodash';
 
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function Header() {
   const auth = getAuth();
-  const [user, loading, error] = useIdToken(auth);
+  const [user] = useIdToken(auth);
   console.log(user);
 
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
-  const handleOpenUserMenu = (event) => {
+  const handleOpenUserMenu = (event: any) => {
     setAnchorElUser(event.currentTarget);
   };
 
@@ -142,7 +141,6 @@ function Header() {
               </Menu>
             </Box>
           </Toolbar>
-          <Categories />
         </Container>
       </AppBar>
     </Box>

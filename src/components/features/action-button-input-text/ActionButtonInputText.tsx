@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import InputText from '@components/features/input-text';
 import { IconButton, Typography } from '@mui/material';
@@ -48,12 +48,6 @@ const ActionButtonInputText = ({
     console.log('ActionButtonInputText', siteAddFormData);
     await submitButton?.onSubmit({ ...submitButton.data, siteName: siteAddFormData.siteName });
     setIsSubmitMode(!isSubmitMode);
-  };
-
-  const handleDisableSubmitMode = (command: string) => {
-    if (command === 'cancle') {
-      // TODO: 취소하면 원래값..
-    }
   };
 
   return (

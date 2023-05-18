@@ -1,5 +1,4 @@
 import { Button, Grid, Typography } from '@mui/material';
-import React from 'react';
 import useSitesTitle from './data/useSitesTitle';
 import SiteAddModal from '../site-add-modal/SiteAddModal';
 

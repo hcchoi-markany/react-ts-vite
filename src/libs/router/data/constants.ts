@@ -37,7 +37,7 @@ const routers = {
     },
   },
 };
-
+// @ts-ignore FIXME:
 const ROUTES = new Proxy(routers, setNestedPathProxy);
 
 export default ROUTES;

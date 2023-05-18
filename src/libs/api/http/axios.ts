@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { parseResponseData } from './interceptors';
 
 // Create a base Axios instance
 const instance = axios.create({

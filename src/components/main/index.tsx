@@ -1,5 +1,4 @@
 import { useQuery } from '@tanstack/react-query';
-import { Fragment } from 'react';
 
 const Main = () => {
   const fetchProducts = async () => {
@@ -11,7 +10,7 @@ const Main = () => {
   console.log('isLoading', isLoading);
   return (
     <>
-      {data?.products.map((product) => (
+      {data?.products.map((product: any) => (
         <div key={product.id}>{product.title}</div>
       ))}
     </>
