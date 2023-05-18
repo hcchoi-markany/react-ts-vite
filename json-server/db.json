@@ -1,0 +1,41 @@
+{
+  "sites": [
+    {
+      "siteName": "수정합니다.",
+      "id": 1
+    },
+    {
+      "siteName": "홍철",
+      "id": 2
+    },
+    {
+      "siteName": "124214",
+      "siteURL": "",
+      "id": 3
+    },
+    {
+      "siteName": "21421",
+      "siteURL": "",
+      "id": 4
+    },
+    {
+      "siteName": "214214214",
+      "siteURL": "",
+      "id": 5
+    },
+    {
+      "siteName": "12412421421",
+      "siteURL": "",
+      "id": 6
+    },
+    {
+      "siteName": "124124124",
+      "siteURL": "",
+      "id": 7
+    },
+    {
+      "siteName": "222221241242122",
+      "id": 8
+    }
+  ]
+}

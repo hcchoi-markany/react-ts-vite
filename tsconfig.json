@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "ESNext",
-    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "lib": ["ESNext", "dom"],
     "module": "ESNext",
     "skipLibCheck": true,
 
@@ -22,10 +22,11 @@
     "noImplicitThis": true,
     "strictNullChecks": true,
 
-    "allowSyntheticDefaultImports": true,
+    // "allowSyntheticDefaultImports": true,
 
     /* Path */
     "baseUrl": ".",
+    "typeRoots": ["node_modules/@types", "@types"],
     "paths": {
       "@components/*": ["src/components/*"],
       "@containers/*": ["src/containers/*"],

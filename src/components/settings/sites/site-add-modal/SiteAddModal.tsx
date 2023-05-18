@@ -72,7 +72,7 @@ const SiteAddModal = ({ open, handleClose }: SiteAddModalProps) => {
                 </Grid>
                 <Grid item xs={6}>
                   <Button variant='outlined' color='primary' fullWidth type='submit'>
-                    Confinue
+                    Continue
                   </Button>
                 </Grid>
               </Grid>

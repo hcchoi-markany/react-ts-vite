@@ -3,16 +3,19 @@ import { useForm } from 'react-hook-form';
 import InputText from '@components/features/input-text';
 import { IconButton, Typography } from '@mui/material';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
-import EditIcon from '@mui/icons-material/Edit';
 import { toast } from 'react-toastify';
+import SubmitButtons from './submit-buttons';
+import { object, string } from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { SiteAddFormData } from '@components/settings/sites/site-add-modal/datas/siteAddModal.types';
 
 export type ActionButtonInputTextProps = {
   value: string;
   isCopyEnable?: boolean;
-  editButton?: {
+  submitButton?: {
     isEditMode: boolean;
-    url: string;
-    onSubmit: () => {};
+    onSubmit: (siteAddFormData: SiteAddFormData) => void;
+    data: any;
   };
 };
 
@@ -21,33 +24,62 @@ const copyTitleText = (copyTitleText: string) => {
   toast.success('copy success !');
 };
 
-const ActionButtonInputText = ({ value, isCopyEnable, editButton }: ActionButtonInputTextProps) => {
+export const siteNameSchema = object().shape({ siteName: string().required() });
+
+const ActionButtonInputText = ({
+  value,
+  isCopyEnable,
+  submitButton,
+}: ActionButtonInputTextProps) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm<SiteAddFormData>({
+    defaultValues: {
+      siteName: value,
+    },
+    resolver: yupResolver(siteNameSchema),
+  });
 
-  const [isEditMode, setIsEditMode] = useState(editButton?.isEditMode || false);
+  const [isSubmitMode, setIsSubmitMode] = useState(false);
+
+  const onSubmit = async (siteAddFormData: SiteAddFormData) => {
+    console.log('ActionButtonInputText', siteAddFormData);
+    await submitButton?.onSubmit({ ...submitButton.data, siteName: siteAddFormData.siteName });
+    setIsSubmitMode(!isSubmitMode);
+  };
+
+  const handleDisableSubmitMode = (command: string) => {
+    if (command === 'cancle') {
+      // TODO: 취소하면 원래값..
+    }
+  };
+
   return (
     <>
-      <Typography component={'span'} pr={2}>
-        {isEditMode ? (
-          <InputText register={register} variant='standard' fullWidth={false} value={value} />
-        ) : (
-          <>{value}</>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <Typography component={'span'} pr={2}>
+          {isSubmitMode && !!submitButton ? (
+            <InputText
+              register={register('siteName')}
+              variant='standard'
+              fullWidth={false}
+              error={errors.siteName}
+            />
+          ) : (
+            <>{value}</>
+          )}
+        </Typography>
+        {isCopyEnable && !isSubmitMode && (
+          <IconButton title='copy' onClick={() => copyTitleText(value)}>
+            <ContentCopyIcon fontSize='small' />
+          </IconButton>
         )}
-      </Typography>
-      {isCopyEnable && (
-        <IconButton title='copy' onClick={() => copyTitleText(value)}>
-          <ContentCopyIcon fontSize='small' />
-        </IconButton>
-      )}
-      {editButton && (
-        <IconButton title='edit' onClick={() => setIsEditMode(!isEditMode)}>
-          <EditIcon fontSize='small' />
-        </IconButton>
-      )}
+        {submitButton && (
+          <SubmitButtons isSubmitMode={isSubmitMode} setIsSubmitMode={setIsSubmitMode} />
+        )}
+      </form>
     </>
   );
 };

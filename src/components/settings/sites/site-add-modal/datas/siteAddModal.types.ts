@@ -1,4 +1,4 @@
-import { object, string, InferType } from 'yup';
+import { object, string, InferType, number } from 'yup';
 
 export type SiteAddModalProps = {
   open: boolean;
@@ -8,6 +8,7 @@ export type SiteAddModalProps = {
 export const SiteAddFormSchema = object().shape({
   siteName: string().required('SiteName is required.'),
   siteURL: string().url('Not URL Format.'),
+  id: number(),
 });
 
 export type SiteAddFormData = InferType<typeof SiteAddFormSchema>;

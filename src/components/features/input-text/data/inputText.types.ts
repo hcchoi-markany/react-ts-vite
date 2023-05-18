@@ -7,4 +7,5 @@ export type InputTextPrpos = {
   fullWidth?: boolean;
   error?: FieldError;
   value?: string;
+  defaultValue?: string;
 };

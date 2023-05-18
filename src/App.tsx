@@ -3,18 +3,16 @@ import getFirebaseApp from '@libs/firebase';
 import AppRouter from '@libs/router';
 import muiTheme from '@libs/theme';
 import { CssBaseline, ThemeProvider } from '@mui/material';
-import { Suspense, useState } from 'react';
+import { Suspense } from 'react';
 import { RouterProvider } from 'react-router-dom';
-
-import { QueryClient, QueryClientProvider } from 'react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { QueryClientProvider } from '@tanstack/react-query';
+import queryClient from '@libs/api/react-query/queryClient';
 
 function App() {
   getFirebaseApp();
-  const [open, setOpen] = useState(false);
-  const queryClient = new QueryClient();
-
   return (
     <>
       <QueryClientProvider client={queryClient}>
@@ -33,6 +31,7 @@ function App() {
             />
           </ThemeProvider>
         </Suspense>
+        <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>
     </>
   );

@@ -8,6 +8,7 @@ const InputText = ({
   fullWidth = true,
   error,
   value,
+  defaultValue,
 }: InputTextPrpos) => {
   return (
     <TextField
@@ -18,6 +19,7 @@ const InputText = ({
       error={!!error}
       helperText={error?.message}
       value={value}
+      defaultValue={defaultValue}
     />
   );
 };
