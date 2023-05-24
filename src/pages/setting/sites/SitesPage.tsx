@@ -1,4 +1,4 @@
-import SitesContainer from '@containers/setting/sites';
+import { SitesContainer } from '@containers/setting/sites';
 
 const SitesPage = () => {
   return <SitesContainer />;

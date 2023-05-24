@@ -1,1 +1,1 @@
-export * from './interface.d';
+export * from './defaultLayout.types';

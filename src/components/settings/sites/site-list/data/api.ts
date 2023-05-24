@@ -1,13 +1,15 @@
-import { SiteAddFormData } from './../../site-add-modal/datas/siteAddModal.types';
-import { apiGet, apiPost, apiPut } from '@libs/api/http/apiBase';
+import { apiDelete, apiGet, apiPost, apiPut } from '@libs/api/http/apiBase';
 import { API_URLS } from '@libs/api/http/data/constants';
+import { Site } from '../../data';
+import { SiteAddForm } from '../../site-add-modal/data';
 
 const fetchSiteList = () => apiGet({ url: API_URLS.SITES });
 
-const insertSite = (siteAddFormData: SiteAddFormData) =>
-  apiPost({ url: API_URLS.SITES, data: siteAddFormData });
+const insertSite = (newSite: SiteAddForm) => apiPost({ url: API_URLS.SITES, data: newSite });
 
-const updateSite = (id: number, siteName: string) =>
-  apiPut({ url: `${API_URLS.SITES}/${id}`, data: { siteName } });
+const updateSite = (id: number, site: Partial<Site>) =>
+  apiPut({ url: `${API_URLS.SITES}/${id}`, data: { ...site } });
 
-export { fetchSiteList, insertSite, updateSite };
+const deleteSite = (id: number) => apiDelete({ url: `${API_URLS.SITES}/${id}` });
+
+export { fetchSiteList, insertSite, updateSite, deleteSite };

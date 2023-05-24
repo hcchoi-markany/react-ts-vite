@@ -1,8 +1,7 @@
 import { Box, Modal, Grid, styled, Typography, Button } from '@mui/material';
-import { SiteAddModalProps } from './datas/siteAddModal.types';
 
-import useSiteAddModal from './datas/useSiteAddModal';
 import InputText from '@components/features/input-text/InputText';
+import { SiteAddModalProps, useSiteAddModal } from './data';
 
 const ModalBody = styled(Box)({
   position: 'absolute',

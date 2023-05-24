@@ -1,1 +1,1 @@
-export { default } from './SitesContainer';
+export { default as SitesContainer } from './SitesContainer';

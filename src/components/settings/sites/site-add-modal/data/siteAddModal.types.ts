@@ -1,14 +1,15 @@
-import { object, string, InferType, number } from 'yup';
+import { object, string, number } from 'yup';
+import { Site } from '../../data';
 
 export type SiteAddModalProps = {
   open: boolean;
   handleClose: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-export const SiteAddFormSchema = object().shape({
+export type SiteAddForm = Pick<Site, 'siteName' | 'siteURL' | 'id'>;
+
+export const SiteAddFormSchema = object<SiteAddForm>().shape({
   siteName: string().required('SiteName is required.'),
   siteURL: string().url('Not URL Format.'),
   id: number(),
 });
-
-export type SiteAddFormData = InferType<typeof SiteAddFormSchema>;

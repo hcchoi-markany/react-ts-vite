@@ -1,40 +1,20 @@
 {
   "sites": [
     {
-      "siteName": "수정합니다.",
-      "id": 1
+      "siteName": "test",
+      "siteURL": "http://naver.com",
+      "id": 1,
+      "accessKey": "6223c94a-17e7-479a-b9b5-8876b5ccf762",
+      "siteKey": "24c93895-4692-4603-aed9-73f8063e7fd7",
+      "createdAt": 1684886811925
     },
     {
-      "siteName": "홍철",
-      "id": 2
-    },
-    {
-      "siteName": "edit1111",
-      "id": 3
-    },
-    {
-      "siteName": "21421",
-      "siteURL": "",
-      "id": 4
-    },
-    {
-      "siteName": "214214214",
-      "siteURL": "",
-      "id": 5
-    },
-    {
-      "siteName": "12412421421",
-      "siteURL": "",
-      "id": 6
-    },
-    {
-      "siteName": "124124124",
-      "siteURL": "",
-      "id": 7
-    },
-    {
-      "siteName": "222221241242122",
-      "id": 8
+      "siteName": "111111111111111",
+      "siteURL": "https://google.com",
+      "id": 2,
+      "accessKey": "6863c0b0-1502-46cd-ad8a-2614041afc7f",
+      "siteKey": "de095a3d-fc6e-443b-8b3e-1f9453e27efe",
+      "createdAt": 1684886884704
     }
   ]
 }

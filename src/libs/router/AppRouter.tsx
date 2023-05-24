@@ -3,11 +3,11 @@ import { Outlet, createBrowserRouter } from 'react-router-dom';
 import { ROUTES } from './data';
 import AuthProvider from '@libs/hocs/auth';
 
-const DefaultLayout = lazy(() => import('@components/layouts/default-layout'));
+const DefaultLayout = lazy(() => import('@components/layouts/default-layout/DefaultLayout'));
 
 const MainPage = lazy(() => import('@pages/main'));
 const LoginPage = lazy(() => import('@pages/login'));
-const SettingsSitesPage = lazy(() => import('@pages/setting/sites'));
+const SettingsSitesPage = lazy(() => import('@pages/setting/sites/SitesPage'));
 
 const AppRouter = createBrowserRouter([
   {

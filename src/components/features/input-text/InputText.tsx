@@ -9,6 +9,7 @@ const InputText = ({
   error,
   value,
   defaultValue,
+  size = 'medium',
 }: InputTextPrpos) => {
   return (
     <TextField
@@ -20,6 +21,7 @@ const InputText = ({
       helperText={error?.message}
       value={value}
       defaultValue={defaultValue}
+      size={size}
     />
   );
 };
