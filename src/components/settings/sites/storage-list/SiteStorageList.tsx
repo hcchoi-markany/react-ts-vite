@@ -1,10 +1,10 @@
 import { Button, Grid, Typography } from '@mui/material';
 import { SiteStorageForm } from '../storage-form';
-import { SiteStorageProps } from '../storage/data';
-import { useSiteStorageList } from './data';
 
-const SiteStorageList = ({ siteId }: SiteStorageProps) => {
-  const { isShowStorageAddForm, setIsShowStorageAddForm } = useSiteStorageList();
+import { siteStorageListProps, useSiteStorageList } from './data';
+
+const SiteStorageList = ({ siteId }: siteStorageListProps) => {
+  const { isShowStorageAddForm, setIsShowStorageAddForm, storageList } = useSiteStorageList(siteId);
   return (
     <Grid container pt={2}>
       <Grid item xs={12}>
@@ -32,6 +32,7 @@ const SiteStorageList = ({ siteId }: SiteStorageProps) => {
           <SiteStorageForm siteId={siteId} setIsShowStorageAddForm={setIsShowStorageAddForm} />
         </Grid>
       )}
+      {storageList?.map((storage) => JSON.stringify(storage))}
     </Grid>
   );
 };

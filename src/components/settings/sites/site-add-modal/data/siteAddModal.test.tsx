@@ -1,6 +1,6 @@
 import { useMutation } from '@tanstack/react-query';
 import { Site } from '../../data';
-import { updateSite } from '../../site-list/data/api';
+import { updateSite } from '../../data/api';
 
 const siteAddModalTest = () => {
   const siteUpdateMutation = useMutation({

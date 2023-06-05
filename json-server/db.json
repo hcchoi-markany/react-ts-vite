@@ -10,11 +10,26 @@
     },
     {
       "siteName": "111111111111111",
-      "siteURL": "https://google.com",
+      "siteURL": "https://google111.com",
       "id": 2,
       "accessKey": "6863c0b0-1502-46cd-ad8a-2614041afc7f",
       "siteKey": "de095a3d-fc6e-443b-8b3e-1f9453e27efe",
       "createdAt": 1684886884704
+    }
+  ],
+  "storages": [
+    {
+      "siteId": 1,
+      "serviceRegion": "ko",
+      "ioType": "in",
+      "storageName": "111111",
+      "bucketName": "111",
+      "storageType": "1",
+      "filePath": "",
+      "accessKey": "11",
+      "secretKey": "11",
+      "description": "",
+      "id": 1
     }
   ]
 }

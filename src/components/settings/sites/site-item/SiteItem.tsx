@@ -4,7 +4,6 @@ import { SiteItemProps, siteNameSchema, siteURLSchema, useSiteItem } from './dat
 import { SiteStorageList } from '../storage-list';
 
 const SiteItem = ({ site }: SiteItemProps) => {
-  console.log('siteItme', site);
   const { onSubmit, handleDeleteSite, createdAtDate } = useSiteItem(site);
 
   return (

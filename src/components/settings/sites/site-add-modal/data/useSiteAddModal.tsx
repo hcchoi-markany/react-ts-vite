@@ -3,7 +3,7 @@ import { SiteAddForm, SiteAddFormSchema } from './siteAddModal.types';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import QUERY_KEYS from '@libs/api/react-query/data/constants';
-import { insertSite } from '../../site-list/data/api';
+import { insertSite } from '../../data/api';
 import siteAddModalTest from './siteAddModal.test';
 
 const useSiteAddModal = () => {

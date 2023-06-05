@@ -1,6 +1,6 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { Site } from '@components/settings/sites/data';
-import { deleteSite, updateSite } from '../../site-list/data/api';
+import { deleteSite, updateSite } from '../../data/api';
 import QUERY_KEYS from '@libs/api/react-query/data/constants';
 import { format } from 'date-fns';
 

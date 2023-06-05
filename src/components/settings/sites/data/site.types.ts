@@ -15,15 +15,15 @@ export const storageSchema = object().shape({
   id: number(),
   siteId: number().required(),
   storageType: string().required(),
-  storageName: string().required('storageType required'),
+  storageName: string().required(),
   bucketName: string().required(),
   filePath: string(),
-  serviceRegion: string().oneOf(['ko', 'jp']).required(),
+  serviceRegion: string().required(),
   accessKey: string().required(),
   ioType: string().required(),
   secretKey: string().required(),
   description: string(),
-  createdAt: number().required(),
+  createdAt: number(),
 });
 
 export type Storage = InferType<typeof storageSchema>;

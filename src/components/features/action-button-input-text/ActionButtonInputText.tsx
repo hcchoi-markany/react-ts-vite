@@ -1,9 +1,9 @@
 import { IconButton, Typography } from '@mui/material';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import SubmitButtons from './submit-buttons';
-import { ActionButtonInputTextProps } from './data';
 import useActionButtonInputText from './data/useActionButtonInputText';
 import { InputText } from '../input-text';
+import { ActionButtonInputTextProps } from './data';
 
 const ActionButtonInputText = <T,>({
   value = '',
@@ -18,7 +18,7 @@ const ActionButtonInputText = <T,>({
     <>
       <form onSubmit={handleSubmit(onSubmit)}>
         <Typography component={'span'} pr={2}>
-          {isSubmitMode && !!submitButton ? (
+          {isSubmitMode && !(submitButton == null) ? (
             <InputText
               register={register(name)}
               variant={variant}
@@ -30,11 +30,16 @@ const ActionButtonInputText = <T,>({
           )}
         </Typography>
         {isCopyEnable && !isSubmitMode && (
-          <IconButton title='copy' onClick={() => copyTitleText(value)}>
+          <IconButton
+            title='copy'
+            onClick={() => {
+              copyTitleText(value);
+            }}
+          >
             <ContentCopyIcon fontSize='small' />
           </IconButton>
         )}
-        {submitButton && (
+        {submitButton != null && (
           <SubmitButtons isSubmitMode={isSubmitMode} setIsSubmitMode={setIsSubmitMode} />
         )}
       </form>

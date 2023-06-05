@@ -1,16 +1,24 @@
 import { InputText } from '@components/features/input-text';
 import { Button, Grid, Typography } from '@mui/material';
-import { SiteStorageFormProps, useSiteStorageForm } from './data';
+import {
+  ioTypeRadioOptions,
+  serviceRegionSelectOptions,
+  SiteStorageFormProps,
+  useSiteStorageForm,
+} from './data';
 import SaveAsOutlinedIcon from '@mui/icons-material/SaveAsOutlined';
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
+import { HookFormSelect } from '@components/features/select';
+import { HookFormRadio } from '@components/features/radio';
 
 const SiteStorageForm = ({ siteId, setIsShowStorageAddForm }: SiteStorageFormProps) => {
-  const { register, handleSubmit, errors, onSubmit } = useSiteStorageForm(siteId);
+  const { register, handleSubmit, errors, onSubmit, setValue, control } =
+    useSiteStorageForm(siteId);
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <Grid container alignItems='center' spacing={2}>
         <Grid item xs={12} textAlign='right'>
-          <Button size='small' color='info'>
+          <Button size='small' color='info' type='submit'>
             <SaveAsOutlinedIcon sx={{ width: '20px' }} />
             <Typography pl={0.5} variant={'body2'}>
               Save
@@ -79,12 +87,18 @@ const SiteStorageForm = ({ siteId, setIsShowStorageAddForm }: SiteStorageFormPro
           />
         </Grid>
 
-        {/* FIXME:change select */}
         <Grid item xs={2} pl={2}>
           ServiceRegion
         </Grid>
         <Grid item xs={4}>
-          <InputText register={register('serviceRegion')} variant='outlined' size='small' />
+          <HookFormSelect
+            defaultValue={serviceRegionSelectOptions[0].value}
+            register={register}
+            setValue={setValue}
+            options={serviceRegionSelectOptions}
+            name={'serviceRegion'}
+            size='small'
+          />
         </Grid>
 
         <Grid item xs={2} pl={2}>
@@ -94,12 +108,18 @@ const SiteStorageForm = ({ siteId, setIsShowStorageAddForm }: SiteStorageFormPro
           <InputText register={register('accessKey')} variant='outlined' size='small' />
         </Grid>
 
-        {/* FIXME:change radio */}
         <Grid item xs={2} pl={2}>
           I/OType
         </Grid>
         <Grid item xs={4}>
-          <InputText register={register('ioType')} variant='outlined' size='small' />
+          <HookFormRadio
+            control={control}
+            // defaultValue={ioTypeRadioOptions[0].value}
+            name={'ioType'}
+            options={ioTypeRadioOptions}
+          />
+
+          {/* <InputText register={register('ioType')} variant='outlined' size='small' /> */}
         </Grid>
 
         <Grid item xs={2} pl={2}>

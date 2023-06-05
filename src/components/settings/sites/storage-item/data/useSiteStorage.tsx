@@ -1,7 +1,9 @@
 import { useEffect } from 'react';
 
 const useSiteStorage = (siteId: number) => {
-  useEffect(() => {}, []);
+  useEffect(() => {
+    console.log('test');
+  }, []);
 
   return {};
 };
